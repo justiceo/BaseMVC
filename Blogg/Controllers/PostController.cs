@@ -10,7 +10,7 @@ using Blogg.Models;
 
 namespace Blogg.Controllers
 {
-    public class PostsController : Controller
+    public class PostController : Controller
     {
         private BloggDbContext db = new BloggDbContext();
 
@@ -20,7 +20,7 @@ namespace Blogg.Controllers
             return View(db.Posts.ToList());
         }
 
-        // GET: Posts/Details/5
+        // GET: Post/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace Blogg.Controllers
             return View(post);
         }
 
-        // GET: Posts/Create
+        // GET: Post/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Posts/Create
+        // POST: Post/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace Blogg.Controllers
             return View(post);
         }
 
-        // GET: Posts/Edit/5
+        // GET: Post/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace Blogg.Controllers
             return View(post);
         }
 
-        // POST: Posts/Edit/5
+        // POST: Post/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace Blogg.Controllers
             return View(post);
         }
 
-        // GET: Posts/Delete/5
+        // GET: Post/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace Blogg.Controllers
             return View(post);
         }
 
-        // POST: Posts/Delete/5
+        // POST: Post/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -10,7 +10,7 @@ using Blogg.Models;
 
 namespace Blogg.Controllers
 {
-    public class CommentsController : Controller
+    public class CommentController : Controller
     {
         private BloggDbContext db = new BloggDbContext();
 
@@ -20,7 +20,7 @@ namespace Blogg.Controllers
             return View(db.Comments.ToList());
         }
 
-        // GET: Comments/Details/5
+        // GET: Comment/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,7 +35,7 @@ namespace Blogg.Controllers
             return View(comment);
         }
 
-        // GET: Comments/Create
+        // GET: Comment/Create
         public ActionResult Create()
         {
             return View();
@@ -58,7 +58,7 @@ namespace Blogg.Controllers
             return View(comment);
         }
 
-        // GET: Comments/Edit/5
+        // GET: Comment/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace Blogg.Controllers
             return View(comment);
         }
 
-        // POST: Comments/Edit/5
+        // POST: Comment/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace Blogg.Controllers
             return View(comment);
         }
 
-        // GET: Comments/Delete/5
+        // GET: Comment/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace Blogg.Controllers
             return View(comment);
         }
 
-        // POST: Comments/Delete/5
+        // POST: Comment/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
