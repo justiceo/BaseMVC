@@ -8,9 +8,20 @@ namespace Blogg.Models
     public class Comment
     {
         public int ID { get; set; }
-
-        public string Body { get; set; }
+        public string Content { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime ModifiedDate { get; set; }
+        public string Status { get; set; }
+        public string parent { get; set; }
+        public int PostID { get; set; }
 
         public virtual Post Post { get; set; }
+        public virtual ICollection<CommentMeta> CommentMetas { get; set; } 
+
+
+        public Comment()
+        {
+            CreatedDate = DateTime.Now;
+        }
     }
 }

@@ -166,11 +166,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505312323422_AddedSeedData.cs" />
+    <Compile Include="Migrations\201505312323422_AddedSeedData.Designer.cs">
+      <DependentUpon>201505312323422_AddedSeedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505312349082_fixingSeedData.cs" />
+    <Compile Include="Migrations\201505312349082_fixingSeedData.Designer.cs">
+      <DependentUpon>201505312349082_fixingSeedData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CommentMeta.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostMeta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -250,6 +261,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505312323422_AddedSeedData.resx">
+      <DependentUpon>201505312323422_AddedSeedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505312349082_fixingSeedData.resx">
+      <DependentUpon>201505312349082_fixingSeedData.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

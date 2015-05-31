@@ -14,10 +14,11 @@ namespace Blogg.Controllers
     {
         private BloggDbContext db = new BloggDbContext();
 
-        // GET: Comments
+        // GET: Comment
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            var comments = db.Comments.Include(c => c.Post);
+            return View(comments.ToList());
         }
 
         // GET: Comment/Details/5
@@ -38,15 +39,16 @@ namespace Blogg.Controllers
         // GET: Comment/Create
         public ActionResult Create()
         {
+            ViewBag.PostID = new SelectList(db.Posts, "ID", "Title");
             return View();
         }
 
-        // POST: Comments/Create
+        // POST: Comment/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Body")] Comment comment)
+        public ActionResult Create([Bind(Include = "ID,Content,CreatedDate,ModifiedDate,Status,parent,PostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace Blogg.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
             return View(comment);
         }
 
@@ -70,6 +73,7 @@ namespace Blogg.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
             return View(comment);
         }
 
@@ -78,7 +82,7 @@ namespace Blogg.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Body")] Comment comment)
+        public ActionResult Edit([Bind(Include = "ID,Content,CreatedDate,ModifiedDate,Status,parent,PostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace Blogg.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PostID = new SelectList(db.Posts, "ID", "Title", comment.PostID);
             return View(comment);
         }
 
