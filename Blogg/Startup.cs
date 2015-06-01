@@ -1,7 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using Blogg;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Blogg.Startup))]
+[assembly: OwinStartup(typeof (Startup))]
+
 namespace Blogg
 {
     public partial class Startup

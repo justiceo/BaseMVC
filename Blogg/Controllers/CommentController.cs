@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Blogg.DAL;
 using Blogg.Models;
@@ -13,8 +9,7 @@ namespace Blogg.Controllers
 {
     public class CommentController : Controller
     {
-        private BloggDbContext db = new BloggDbContext();
-
+        private readonly BloggDbContext db = new BloggDbContext();
         // GET: Comment
         public ActionResult Index()
         {
@@ -29,7 +24,7 @@ namespace Blogg.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            var comment = db.Comments.Find(id);
             if (comment == null)
             {
                 return HttpNotFound();
@@ -49,7 +44,8 @@ namespace Blogg.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Content,CreatedDate,ModifiedDate,Status,parent,PostID")] Comment comment)
+        public ActionResult Create(
+            [Bind(Include = "ID,Content,CreatedDate,ModifiedDate,Status,parent,PostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +65,7 @@ namespace Blogg.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            var comment = db.Comments.Find(id);
             if (comment == null)
             {
                 return HttpNotFound();
@@ -83,7 +79,8 @@ namespace Blogg.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Content,CreatedDate,ModifiedDate,Status,parent,PostID")] Comment comment)
+        public ActionResult Edit(
+            [Bind(Include = "ID,Content,CreatedDate,ModifiedDate,Status,parent,PostID")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +99,7 @@ namespace Blogg.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            var comment = db.Comments.Find(id);
             if (comment == null)
             {
                 return HttpNotFound();
@@ -115,7 +112,7 @@ namespace Blogg.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
+            var comment = db.Comments.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 using Blogg.DAL;
+using Blogg.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using Blogg.Models;
 
 namespace Blogg
 {
@@ -41,7 +37,8 @@ namespace Blogg
         {
         }
 
-        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
+        public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options,
+            IOwinContext context)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<UserDbContext>()));
             // Configure validation logic for usernames
@@ -58,7 +55,7 @@ namespace Blogg
                 RequireNonLetterOrDigit = true,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = true
             };
 
             // Configure user lockout defaults
@@ -82,7 +79,7 @@ namespace Blogg
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
-                manager.UserTokenProvider = 
+                manager.UserTokenProvider =
                     new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
             return manager;
@@ -99,10 +96,11 @@ namespace Blogg
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {
-            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager);
+            return user.GenerateUserIdentityAsync((ApplicationUserManager) UserManager);
         }
 
-        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)
+        public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options,
+            IOwinContext context)
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }

@@ -6,7 +6,7 @@ namespace Blogg.DAL
     public class UserDbContext : IdentityDbContext<ApplicationUser>
     {
         public UserDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", false)
         {
         }
 

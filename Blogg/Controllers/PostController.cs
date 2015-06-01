@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Blogg.DAL;
 using Blogg.Models;
@@ -13,8 +9,7 @@ namespace Blogg.Controllers
 {
     public class PostController : Controller
     {
-        private BloggDbContext db = new BloggDbContext();
-
+        private readonly BloggDbContext db = new BloggDbContext();
         // GET: Post
         public ActionResult Index()
         {
@@ -28,7 +23,7 @@ namespace Blogg.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            var post = db.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -47,7 +42,8 @@ namespace Blogg.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,CreatedDate,ModifiedDate,Excerpt,Content,Status,PostType")] Post post)
+        public ActionResult Create(
+            [Bind(Include = "ID,Title,CreatedDate,ModifiedDate,Excerpt,Content,Status,PostType")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +62,7 @@ namespace Blogg.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            var post = db.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -79,7 +75,8 @@ namespace Blogg.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,CreatedDate,ModifiedDate,Excerpt,Content,Status,PostType")] Post post)
+        public ActionResult Edit(
+            [Bind(Include = "ID,Title,CreatedDate,ModifiedDate,Excerpt,Content,Status,PostType")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +94,7 @@ namespace Blogg.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            var post = db.Posts.Find(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -110,7 +107,7 @@ namespace Blogg.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Post post = db.Posts.Find(id);
+            var post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");

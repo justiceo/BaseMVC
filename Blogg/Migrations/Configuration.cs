@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Linq;
 using Blogg.DAL;
 using Blogg.Models;
 using Microsoft.AspNet.Identity;
@@ -6,11 +9,6 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Blogg.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     internal sealed class Configuration : DbMigrationsConfiguration<BloggDbContext>
     {
         public Configuration()
@@ -41,7 +39,7 @@ namespace Blogg.Migrations
             //        AccessFailedCount = 0,
             //        EmailConfirmed = true,
             //        UserName = "demo"
-                    
+
             //    },
             //    new ApplicationUser
             //    {
@@ -89,14 +87,14 @@ namespace Blogg.Migrations
                 {
                     Title = "A post Title",
                     ModifiedDate = DateTime.Now,
-                    PostType = "post",
+                    PostType = "post"
                     //ApplicationUser = context.UserDbContext.Users.FirstOrDefault()
                 },
                 new Post
                 {
                     Title = "Another post Title",
                     ModifiedDate = DateTime.Now,
-                    PostType = "post",
+                    PostType = "post"
                     //ApplicationUser = context.UserDbContext.Users.FirstOrDefault()
                 }
             };
@@ -109,14 +107,14 @@ namespace Blogg.Migrations
                 {
                     Content = "comment body",
                     ModifiedDate = DateTime.Now,
-                    Post = posts.FirstOrDefault(),
+                    Post = posts.FirstOrDefault()
                     //ApplicationUser = context.UserDbContext.Users.FirstOrDefault()
                 },
                 new Comment
                 {
                     Content = "another comment body",
                     ModifiedDate = DateTime.Now,
-                    Post = posts.LastOrDefault(),
+                    Post = posts.LastOrDefault()
                     //ApplicationUser = context.UserDbContext.Users.FirstOrDefault()
                 }
             };
@@ -124,7 +122,7 @@ namespace Blogg.Migrations
             context.SaveChanges();
         }
 
-        bool AddUserAndRole(UserDbContext context)
+        private bool AddUserAndRole(UserDbContext context)
         {
             IdentityResult ir;
             var rm = new RoleManager<IdentityRole>
@@ -132,9 +130,9 @@ namespace Blogg.Migrations
             ir = rm.Create(new IdentityRole("canEdit"));
             var um = new UserManager<ApplicationUser>(
                 new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser()
+            var user = new ApplicationUser
             {
-                UserName = "user1@contoso.com",
+                UserName = "user1@contoso.com"
             };
             ir = um.Create(user, "P_assw0rd1");
             if (ir.Succeeded == false)
