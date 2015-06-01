@@ -9,7 +9,7 @@ namespace Blogg.Controllers
 {
     public class PostController : Controller
     {
-        private readonly BloggDbContext db = new BloggDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
         // GET: Post
         public ActionResult Index()
         {

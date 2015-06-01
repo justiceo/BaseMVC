@@ -155,7 +155,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -163,30 +162,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="DAL\BloggDbContext.cs" />
-    <Compile Include="DAL\UserDbContext.cs" />
+    <Compile Include="DAL\ApplicationSignInManager.cs" />
+    <Compile Include="DAL\ApplicationUserManager.cs" />
+    <Compile Include="DAL\EmailService.cs" />
+    <Compile Include="DAL\SmsService.cs" />
+    <Compile Include="DAL\ApplicationDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201505312323422_AddedSeedData.cs" />
-    <Compile Include="Migrations\201505312323422_AddedSeedData.Designer.cs">
-      <DependentUpon>201505312323422_AddedSeedData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201505312349082_fixingSeedData.cs" />
-    <Compile Include="Migrations\201505312349082_fixingSeedData.Designer.cs">
-      <DependentUpon>201505312349082_fixingSeedData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506010141021_addedBloggUser.cs" />
-    <Compile Include="Migrations\201506010141021_addedBloggUser.Designer.cs">
-      <DependentUpon>201506010141021_addedBloggUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506010153485_addedBloggUser1.cs" />
-    <Compile Include="Migrations\201506010153485_addedBloggUser1.Designer.cs">
-      <DependentUpon>201506010153485_addedBloggUser1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201506010156435_addedBloggUser9.cs" />
-    <Compile Include="Migrations\201506010156435_addedBloggUser9.Designer.cs">
-      <DependentUpon>201506010156435_addedBloggUser9.cs</DependentUpon>
+    <Compile Include="Migrations\201506010316040_usingOneDbContext.cs" />
+    <Compile Include="Migrations\201506010316040_usingOneDbContext.Designer.cs">
+      <DependentUpon>201506010316040_usingOneDbContext.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -292,20 +278,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201505312323422_AddedSeedData.resx">
-      <DependentUpon>201505312323422_AddedSeedData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201505312349082_fixingSeedData.resx">
-      <DependentUpon>201505312349082_fixingSeedData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506010141021_addedBloggUser.resx">
-      <DependentUpon>201506010141021_addedBloggUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506010153485_addedBloggUser1.resx">
-      <DependentUpon>201506010153485_addedBloggUser1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201506010156435_addedBloggUser9.resx">
-      <DependentUpon>201506010156435_addedBloggUser9.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506010316040_usingOneDbContext.resx">
+      <DependentUpon>201506010316040_usingOneDbContext.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

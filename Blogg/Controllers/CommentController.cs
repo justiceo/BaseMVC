@@ -9,7 +9,7 @@ namespace Blogg.Controllers
 {
     public class CommentController : Controller
     {
-        private readonly BloggDbContext db = new BloggDbContext();
+        private readonly ApplicationDbContext db = new ApplicationDbContext();
         // GET: Comment
         public ActionResult Index()
         {

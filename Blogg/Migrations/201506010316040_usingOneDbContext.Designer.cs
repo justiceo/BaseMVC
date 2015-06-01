@@ -7,13 +7,13 @@ namespace Blogg.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class fixingSeedData : IMigrationMetadata
+    public sealed partial class usingOneDbContext : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fixingSeedData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(usingOneDbContext));
         
         string IMigrationMetadata.Id
         {
-            get { return "201505312349082_fixingSeedData"; }
+            get { return "201506010316040_usingOneDbContext"; }
         }
         
         string IMigrationMetadata.Source

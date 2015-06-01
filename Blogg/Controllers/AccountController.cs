@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Blogg.DAL;
 using Blogg.Models;
 using Blogg.ViewModels.Account;
 using Microsoft.AspNet.Identity;
