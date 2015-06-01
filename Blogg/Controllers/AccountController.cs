@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blogg.Models;
+using Blogg.ViewModels;
+using Blogg.ViewModels.Account;
 
 namespace Blogg.Controllers
 {

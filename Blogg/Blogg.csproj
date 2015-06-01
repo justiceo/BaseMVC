@@ -163,6 +163,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="DAL\BloggDbContext.cs" />
+    <Compile Include="DAL\UserDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,16 +176,43 @@
     <Compile Include="Migrations\201505312349082_fixingSeedData.Designer.cs">
       <DependentUpon>201505312349082_fixingSeedData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506010141021_addedBloggUser.cs" />
+    <Compile Include="Migrations\201506010141021_addedBloggUser.Designer.cs">
+      <DependentUpon>201506010141021_addedBloggUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506010153485_addedBloggUser1.cs" />
+    <Compile Include="Migrations\201506010153485_addedBloggUser1.Designer.cs">
+      <DependentUpon>201506010153485_addedBloggUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506010156435_addedBloggUser9.cs" />
+    <Compile Include="Migrations\201506010156435_addedBloggUser9.Designer.cs">
+      <DependentUpon>201506010156435_addedBloggUser9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentMeta.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostMeta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AccountManage\AddPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\ConfigureTwoFactorViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\FactorViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\IndexViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\ManageLoginsViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\SetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\AccountManage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -268,6 +297,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505312349082_fixingSeedData.resx">
       <DependentUpon>201505312349082_fixingSeedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506010141021_addedBloggUser.resx">
+      <DependentUpon>201506010141021_addedBloggUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506010153485_addedBloggUser1.resx">
+      <DependentUpon>201506010153485_addedBloggUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506010156435_addedBloggUser9.resx">
+      <DependentUpon>201506010156435_addedBloggUser9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

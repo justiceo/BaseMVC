@@ -14,8 +14,10 @@ namespace Blogg.Models
         public string Status { get; set; }
         public string parent { get; set; }
         public int PostID { get; set; }
+        public int ApplicationUserID { get; set; }
 
         public virtual Post Post { get; set; }
+        //public virtual ApplicationUser ApplicationUser { get; set; }
         public virtual ICollection<CommentMeta> CommentMetas { get; set; } 
 
 

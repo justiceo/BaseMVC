@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Blogg.DAL;
 using Blogg.Models;
 
 namespace Blogg.Controllers
