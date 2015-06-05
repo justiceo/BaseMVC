@@ -1,4 +1,4 @@
-﻿namespace Blogg.Models
+﻿namespace Blogg.Models.Blog
 {
     public class PostMeta
     {

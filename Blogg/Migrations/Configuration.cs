@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Blogg.Models.Blog;
+
 namespace Blogg.Migrations
 {
     using System;
@@ -26,6 +29,49 @@ namespace Blogg.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            // Seed Application Users
+
+            // Seed Blog Content
+            var posts = new List<Post>
+            {
+                new Post
+                {
+                    Title = "Post One Here",
+                    Content = "Sample post content",
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                },
+                new Post
+                {
+                    Title = "Post Two",
+                    Content = "Amd Sample post content",
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                }
+            };
+            posts.ForEach(p => context.Posts.Add(p));
+            context.SaveChanges();
+
+            var comments = new List<Comment>
+            {
+                new Comment
+                {
+                    Content = "some comment",
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    Post = posts.FirstOrDefault()
+                },
+                new Comment
+                {
+                    Content = "another comment again",
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now,
+                    Post = posts.LastOrDefault()
+                }
+            };
+            comments.ForEach(c => context.Comments.Add(c));
+            context.SaveChanges();
         }
     }
 }

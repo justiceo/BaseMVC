@@ -174,12 +174,24 @@
     <Compile Include="Migrations\201506010316040_usingOneDbContext.Designer.cs">
       <DependentUpon>201506010316040_usingOneDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506050046500_addedApplicationUser.cs" />
+    <Compile Include="Migrations\201506050046500_addedApplicationUser.Designer.cs">
+      <DependentUpon>201506050046500_addedApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506050115443_updated post, comment models.cs" />
+    <Compile Include="Migrations\201506050115443_updated post, comment models.Designer.cs">
+      <DependentUpon>201506050115443_updated post, comment models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506050135136_removed model data annotations.cs" />
+    <Compile Include="Migrations\201506050135136_removed model data annotations.Designer.cs">
+      <DependentUpon>201506050135136_removed model data annotations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\CommentMeta.cs" />
+    <Compile Include="Models\Blog\Comment.cs" />
+    <Compile Include="Models\Blog\CommentMeta.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\PostMeta.cs" />
+    <Compile Include="Models\Blog\Post.cs" />
+    <Compile Include="Models\Blog\PostMeta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountManage\AddPhoneNumberViewModel.cs" />
@@ -266,9 +278,15 @@
     <Content Include="Views\Comment\Details.cshtml" />
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Index.cshtml" />
+    <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Delete.cshtml" />
+    <Content Include="Views\Comments\Details.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
+    <Content Include="Views\Comments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Blog\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -280,6 +298,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201506010316040_usingOneDbContext.resx">
       <DependentUpon>201506010316040_usingOneDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506050046500_addedApplicationUser.resx">
+      <DependentUpon>201506050046500_addedApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506050115443_updated post, comment models.resx">
+      <DependentUpon>201506050115443_updated post, comment models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506050135136_removed model data annotations.resx">
+      <DependentUpon>201506050135136_removed model data annotations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

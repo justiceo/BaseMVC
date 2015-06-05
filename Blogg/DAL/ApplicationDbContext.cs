@@ -1,5 +1,6 @@
 using System.Data.Entity;
 using Blogg.Models;
+using Blogg.Models.Blog;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Blogg.DAL
