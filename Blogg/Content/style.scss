@@ -1,4 +1,6 @@
-﻿body {
+﻿@import "sass-bootstrap/assets/stylesheets/_bootstrap.scss";
+
+body {
     padding-bottom: 20px;
     padding-top: 50px;
 }
@@ -21,3 +23,8 @@
 input,
 select,
 textarea { max-width: 280px; }
+
+body {
+
+	background : #ddd;
+}

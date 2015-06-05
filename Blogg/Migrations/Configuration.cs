@@ -40,14 +40,16 @@ namespace Blogg.Migrations
                     Title = "Post One Here",
                     Content = "Sample post content",
                     CreatedDate = DateTime.Now,
-                    ModifiedDate = DateTime.Now
+                    ModifiedDate = DateTime.Now,
+					ApplicationUser = context.Users.FirstOrDefault()
                 },
                 new Post
                 {
                     Title = "Post Two",
                     Content = "Amd Sample post content",
                     CreatedDate = DateTime.Now,
-                    ModifiedDate = DateTime.Now
+                    ModifiedDate = DateTime.Now,
+					ApplicationUser = context.Users.LastOrDefault()
                 }
             };
             posts.ForEach(p => context.Posts.Add(p));
@@ -72,6 +74,7 @@ namespace Blogg.Migrations
             };
             comments.ForEach(c => context.Comments.Add(c));
             context.SaveChanges();
+			
         }
     }
 }
