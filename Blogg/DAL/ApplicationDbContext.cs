@@ -18,5 +18,16 @@ namespace Blogg.DAL
         {
             return new ApplicationDbContext();
         }
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
+
+			modelBuilder.Entity<ApplicationUser>().ToTable("Users");
+			modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");
+			modelBuilder.Entity<IdentityRole>().ToTable("Roles");
+			modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
+			modelBuilder.Entity<IdentityUserClaim>().ToTable("UserClaims");
+		}
     }
 }

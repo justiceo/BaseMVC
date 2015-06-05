@@ -174,6 +174,10 @@
     <Compile Include="Migrations\201506010316040_usingOneDbContext.Designer.cs">
       <DependentUpon>201506010316040_usingOneDbContext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506051942376_updated table names.cs" />
+    <Compile Include="Migrations\201506051942376_updated table names.Designer.cs">
+      <DependentUpon>201506051942376_updated table names.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentMeta.cs" />
@@ -280,6 +284,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201506010316040_usingOneDbContext.resx">
       <DependentUpon>201506010316040_usingOneDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506051942376_updated table names.resx">
+      <DependentUpon>201506051942376_updated table names.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
